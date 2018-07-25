@@ -1,0 +1,27 @@
+html{
+  background-color: lightpink;
+}
+
+body{
+  color: black;
+}
+
+h1{
+  color: black;
+}
+
+/* https://bavotasan.com/2011/a-simple-fade-with-css3/ */
+.fade {
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+   }
+
+   .fade:hover {
+      opacity: 0.5;
+      }
+
+#col{
+  column-count: 3;
+}
