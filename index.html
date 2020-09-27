@@ -1,205 +1,122 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="mystyles.css">
-    <script type="text/javascript" src="aboutme.js"></script>
-  </head>
-  <body>
-    <h1><center>Ivy</center></h1>
-    <div id="col">
-      <p><img src="https://petcube.com/blog/content/images/2017/08/kitten-supplies-cover.jpg" alt="kitten" width="250" height="150" class="fade"></p>
-      <p> i’m 17 and i live in seattle, washington</p>
-      <p> i want a cat</p>
 
-
-      <p><img src="http://www.pngmart.com/files/3/Strawberry-Transparent-PNG.png" alt="strawberry" width="270" height="150" class="fade"></p>
-      <p> my favorite stuff: fruits, kittens, sushi, 1D, marvel</p>
-      <p> my favorite websites:
-      <a href="https://www.twitter.com/">twitter</a>,
-      <a href="https://www.tumblr.com/">tumblr</a></p>
-      <p id="stuff" style="display:none">it had no petals (pedals)!</p>
-      <button type="button" onclick="document.getElementById('stuff').style.display='block'">why couldn't the flower ride its bike?</button>
-
-      <p><img src="http://www.pngmart.com/files/4/Disneyland-PNG-Free-Download.png" width="250" height="150" class="fade"></p>
-      <p> i love to travel </p>
-      <p> my favorite places: san francisco, toronto, disneyland tokyo</p>
-      <p id="random" style="display:none">my fav disney movie is bambi!</p>
-      <button type="button" onclick="document.getElementById('random').style.display='block'">click this</button>
+<html lang="en">
+<head>
+  <link href="mystyles.css" rel="stylesheet">
+  <script src="aboutme.js"></script>
+  <title>Ivy Zhou</title>
+</head>
+<body>
+  <header>
+    <img id="header-image" src="header.PNG" alt="Header Image">
+    <h1>Ivy Zhou</h1>
+    <h3>Computer Science Undergraduate</h3>
+    <h3>University of Washington</h3>
+  </header>
+  <main>
+    <h4>Welcome! Here are some of the projects I've worked on:</h4>
+    <div class="project-box">
+      <div class="row">
+        <div class="column">
+          <img class="project-box-image" onclick="showProject()"
+          src="seatac.PNG" alt="seatac airport">
+          </div>
+        <div class="column">
+          <h2 onclick="showProject()">Escalator Project (Machine Learning)</h2>
+          <p class="tools-text"><b>Python | Jupyter Notebook</b></p>
+          <p>During my summer internship at the Port of Seattle, my team and I
+            worked on implementing and testing preliminary machine learning
+            models to detect dangerous objects (such as suitcases, strollers,
+            ect.) on airport escalators, aiming to improve the safety of
+            travellers.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="more" style=display:none>
+          <div class="column">
+            <p>Over six weeks, the machine learning team worked on various
+              methods of detection. Using transfer learning, I worked on a
+              binary classification model that would sort images displaying
+              different escalator situations into two categories, safe and
+              unsafe. Even though our dataset was limited, the model was able
+              to sort the images at an accuracy rate of 81%.</p>
+            <p>The preparation, training and testing process can be
+              viewed in depth
+              <a href="https://github.com/ivystacy/escalator-classification">
+                here.</a>
+            </p>
+          </div>
+          <div class="column">
+            <img class="project-box-image" src="escalator-image.PNG"
+            alt="escalator project">
+          </div>
+        </div>
+      </div>
     </div>
-
-    <p id="cat" style="display:none"><img alt="cat" src="https://purepng.com/public/uploads/large/515023046579hvzohbmnlxqbdyqs1460y3msjygqbzq450jwkjlptpcrykihbss3ghbemg2ezgowfepfgdhheo0rziqr1ogu7qacx3zdqxltsnc.png"></p>
-    <button type="button" onclick="document.getElementById('cat').style.display='block'">more cats</button>
-
-
-
-
-
-    <script type="text/javascript">
-  // <![CDATA[
-  var colour="#000000";
-  var sparkles=120;
-
-  /* http://www.snazzyspace.com/tumblr/mouse-sparkles.php, http://www.mf2fm.com/rv */
-  var x=ox=400;
-  var y=oy=300;
-  var swide=800;
-  var shigh=600;
-  var sleft=sdown=0;
-  var tiny=new Array();
-  var star=new Array();
-  var starv=new Array();
-  var starx=new Array();
-  var stary=new Array();
-  var tinyx=new Array();
-  var tinyy=new Array();
-  var tinyv=new Array();
-
-  window.onload=function() { if (document.getElementById) {
-    var i, rats, rlef, rdow;
-    for (var i=0; i<sparkles; i++) {
-      var rats=createDiv(3, 3);
-      rats.style.visibility="hidden";
-      document.body.appendChild(tiny[i]=rats);
-      starv[i]=0;
-      tinyv[i]=0;
-      var rats=createDiv(5, 5);
-      rats.style.backgroundColor="transparent";
-      rats.style.visibility="hidden";
-      var rlef=createDiv(1, 5);
-      var rdow=createDiv(5, 1);
-      rats.appendChild(rlef);
-      rats.appendChild(rdow);
-      rlef.style.top="2px";
-      rlef.style.left="0px";
-      rdow.style.top="0px";
-      rdow.style.left="2px";
-      document.body.appendChild(star[i]=rats);
-    }
-    set_width();
-    sparkle();
-  }}
-
-  function sparkle() {
-    var c;
-    if (x!=ox || y!=oy) {
-      ox=x;
-      oy=y;
-      for (c=0; c<sparkles; c++) if (!starv[c]) {
-        star[c].style.left=(starx[c]=x)+"px";
-        star[c].style.top=(stary[c]=y)+"px";
-        star[c].style.clip="rect(0px, 5px, 5px, 0px)";
-        star[c].style.visibility="visible";
-        starv[c]=50;
-        break;
-      }
-    }
-    for (c=0; c<sparkles; c++) {
-      if (starv[c]) update_star(c);
-      if (tinyv[c]) update_tiny(c);
-    }
-    setTimeout("sparkle()", 40);
-  }
-
-  function update_star(i) {
-    if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
-    if (starv[i]) {
-      stary[i]+=1+Math.random()*3;
-      if (stary[i]<shigh+sdown) {
-        star[i].style.top=stary[i]+"px";
-        starx[i]+=(i%5-2)/5;
-        star[i].style.left=starx[i]+"px";
-      }
-      else {
-        star[i].style.visibility="hidden";
-        starv[i]=0;
-        return;
-      }
-    }
-    else {
-      tinyv[i]=50;
-      tiny[i].style.top=(tinyy[i]=stary[i])+"px";
-      tiny[i].style.left=(tinyx[i]=starx[i])+"px";
-      tiny[i].style.width="2px";
-      tiny[i].style.height="2px";
-      star[i].style.visibility="hidden";
-      tiny[i].style.visibility="visible"
-    }
-  }
-
-  function update_tiny(i) {
-    if (--tinyv[i]==25) {
-      tiny[i].style.width="1px";
-      tiny[i].style.height="1px";
-    }
-    if (tinyv[i]) {
-      tinyy[i]+=1+Math.random()*3;
-      if (tinyy[i]<shigh+sdown) {
-        tiny[i].style.top=tinyy[i]+"px";
-        tinyx[i]+=(i%5-2)/5;
-        tiny[i].style.left=tinyx[i]+"px";
-      }
-      else {
-        tiny[i].style.visibility="hidden";
-        tinyv[i]=0;
-        return;
-      }
-    }
-    else tiny[i].style.visibility="hidden";
-  }
-
-  document.onmousemove=mouse;
-  function mouse(e) {
-    set_scroll();
-    y=(e)?e.pageY:event.y+sdown;
-    x=(e)?e.pageX:event.x+sleft;
-  }
-
-  function set_scroll() {
-    if (typeof(self.pageYOffset)=="number") {
-      sdown=self.pageYOffset;
-      sleft=self.pageXOffset;
-    }
-    else if (document.body.scrollTop || document.body.scrollLeft) {
-      sdown=document.body.scrollTop;
-      sleft=document.body.scrollLeft;
-    }
-    else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
-      sleft=document.documentElement.scrollLeft;
-  	sdown=document.documentElement.scrollTop;
-    }
-    else {
-      sdown=0;
-      sleft=0;
-    }
-  }
-
-  window.onresize=set_width;
-  function set_width() {
-    if (typeof(self.innerWidth)=="number") {
-      swide=self.innerWidth;
-      shigh=self.innerHeight;
-    }
-    else if (document.documentElement && document.documentElement.clientWidth) {
-      swide=document.documentElement.clientWidth;
-      shigh=document.documentElement.clientHeight;
-    }
-    else if (document.body.clientWidth) {
-      swide=document.body.clientWidth;
-      shigh=document.body.clientHeight;
-    }
-  }
-
-  function createDiv(height, width) {
-    var div=document.createElement("div");
-    div.style.position="absolute";
-    div.style.height=height+"px";
-    div.style.width=width+"px";
-    div.style.overflow="hidden";
-    div.style.backgroundColor=colour;
-    return (div);
-  }
-  // ]]>
-  </script>
-
-  </body>
+    <div class="project-box">
+      <div class="row">
+        <div class="column">
+          <img class="project-box-image" onclick="showProject2()"
+          src="boba generator.JPG" alt="boba generator">
+          </div>
+        <div class="column">
+          <h2 onclick="showProject2()">Bubble Tea Generator</h2>
+          <p class="tools-text"><b>JavaScript | App Lab</b></p>
+          <p>This was one of my favorite projects that I worked on while
+            participating in CSE Startup at the University of Washington.
+            We were to create a user-centered app that was simple to understand
+            and easy to navigate. I decided to implement an app targeted to
+            indecisive bubble tea customers where they are able to generate
+            random drinks and then save their favorite combinations.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="more2" style=display:none>
+          <p>In the making of this project, various trials were completed to
+          determine whether users were able to complete a series of tasks
+          using the app. With this, we frequently took user feedback and
+          made adjustments to ensure that the app was as user-friendly as
+          possible. Check out the final app
+          <a href="https://studio.code.org/projects/applab/bgtsS8Q2T6MBnv1nth_44l1wNdFnonUhwsRgs9iRhfs">
+            here.</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="project-box">
+      <div class="row">
+        <div class="column">
+          <img class="project-box-image" onclick="showProject3()"
+          src="ctrlsave.PNG" alt="ctrl save project">
+        </div>
+        <div class="column">
+          <h2 onclick="showProject3()">Ctrl Save</h2>
+          <p class="tools-text"><b>HTML | CSS | JavaScript</b></p>
+          <p>I was first introduced to computer science when I participated in
+            the Girls Who Code Summer Immersion Program. Over the summer, I
+            gained exposure to Python, HTML, Arduino and much more. As the
+            final project, I collaborated on an interactive website 'Ctrl
+            Save' which aimed raise awareness for endangered species.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="more3" style=display:none>
+          <p>When you enter the 'Ctrl Save' webpage, you first play a game
+            that intends to capture the POV of an endangered animal. The moment
+            you lose, you are redirected to a page where there is information
+            about the actions you can take to help at-risk species.
+            This was the first coding project that I ever worked on, so there
+            are some imperfections, but it provided a great learning
+            experience for my classmates and I!</p>
+          <p>See the interactive website
+            <a href="https://girlsfirst.github.io/ctrl-save/">
+              here.</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+  </footer>
+</body>
 </html>

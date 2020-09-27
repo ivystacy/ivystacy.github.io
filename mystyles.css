@@ -1,27 +1,138 @@
-html{
-  background-color: lightpink;
+a {
+  color: purple;
 }
 
-body{
+a:hover {
+  color: #ff8081;
+}
+
+body {
+  background-color: #f2f2f2;
+  background-repeat: repeat;
+  display: flex;
+  justify-content: center;
+}
+
+.project-box {
+  background-color: #eeecff;
+  border: solid thick #d0cfff;
+  display: grid;
+  margin-bottom: 20px;
+  margin-left: 10%;
+  margin-top: 20px;
+  width: 80%;
+}
+
+.project-box-image {
+  border-radius: 25px;
+  margin: 10px 0px 10px 0px;
+  transition: transform .2s;
+  width: 100%;
+}
+
+.special-project-box-image {
+  border-radius: 25px;
+  margin: 10px 0px 5px 10px;
+  transition: transform .2s;
+  width: 45%;
+}
+
+.project-box-image:hover {
+  transform: scale(1.05);
+}
+
+.column {
+  float: left;
+  width: 45%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.tools-text {
+  color: #ff9ca5;
+  font-family: helvetica;
+  size: 20px;
+}
+
+header {
+  background-color: #d0cfff;
+  font-family: helvetica;
+  font-size: 25px;
+  position: fixed;
+  text-align: left;
+  top: 0;
+  width: 70%;
+}
+
+#header-image {
+  float: right;
+  height: 160px;
+  margin: 10px 75px 0px 0px;
+}
+
+h1 {
   color: black;
+  margin: 10px 10px 10px 75px;
 }
 
-h1{
+h3 {
+  color: white;
+  margin: 10px 10px 10px 75px;
+}
+
+h2 {
   color: black;
+  font-family: helvetica;
+  margin: 10px 0px 0px 0px;
 }
 
-/* https://bavotasan.com/2011/a-simple-fade-with-css3/ */
-.fade {
-   opacity: 1;
-   transition: opacity .25s ease-in-out;
-   -moz-transition: opacity .25s ease-in-out;
-   -webkit-transition: opacity .25s ease-in-out;
-   }
+h2:hover {
+  color: white;
+}
 
-   .fade:hover {
-      opacity: 0.5;
-      }
+h4 {
+  color: black;
+  font-family: helvetica;
+  margin: 20px 0px 0px 0px;
+}
 
-#col{
-  column-count: 3;
+main {
+  background-color: white;
+  font-family: times;
+  margin-top: 160px;
+  margin-bottom: 0px;
+  text-align: center;
+  width: 70%;
+}
+
+.highlight {
+  background-color: #ffd5f3;
+}
+
+nav {
+  font-size: 20px;
+}
+
+ul {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul li {
+  flex: 33%
+}
+
+footer {
+  background-color: #d0cfff;
+  bottom: 0;
+  height: 10px;
+  position: fixed;
+  width: 70%;
 }
